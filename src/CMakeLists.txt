@@ -4,9 +4,9 @@ find_package(OGDF REQUIRED)
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
 find_package(pybind11 CONFIG REQUIRED)
 add_definitions(-DRAPIDJSON_HAS_STDSTRING)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/py})
+include_directories(${Python_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/py})
 target_link_libraries(annotation_graph
-        ${COGUTIL_LIBRARIES}
+        ${Python_LIBRARIES}
         ${Boost_LIBRARIES}
         OGDF)
 
